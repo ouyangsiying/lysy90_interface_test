@@ -1,0 +1,22 @@
+{
+    "new_fa_message_except_data": {
+      "errno": 0,
+      "result": {
+        "data": [
+          {
+            "content": "崆峒区足球运动协会"
+          },
+          {
+            "content": "葫芦岛市足球协会"
+          },
+          {
+            "content": "贵溪市足球协会"
+          },
+          {
+            "content": "连山区足球协会"
+          },
+          {"content": "江苏省体育场馆协会"}
+        ]
+      }
+    }
+}

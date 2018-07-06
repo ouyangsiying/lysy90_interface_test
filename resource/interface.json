@@ -1,0 +1,18 @@
+{
+  "api_list": [
+    {
+      "url": "/api/get_new_fa_message",
+      "method": "get",
+      "need_login": 0,
+      "test_data": "new_fa_message_test_data",
+      "expect_data": "new_fa_message_except_data"
+    },
+    {
+      "url": "/api/get_new_fa_message",
+      "method": "get",
+      "need_login": 0,
+      "test_data": "new_fa_message_test_data",
+      "expect_data": "new_fa_message_except_data"
+    }
+  ]
+}
