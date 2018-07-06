@@ -1,7 +1,9 @@
-import xlwt
 import json
+
+import xlwt
 from xlutils.copy import copy
-from common.Tool import Tool
+
+from tool.Tool import Tool
 
 
 class WriteReport:

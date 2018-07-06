@@ -1,89 +1,49 @@
 import requests
 import json
-import hashlib
-import urllib
-import http.cookiejar
+import config
 
 
 class NetworkRequest:
-    def __init__(self,baseUrl='http://vip.lysy90store.xyz'):
-        self.baseUrl = baseUrl
-        self.laravel_session = ''
-        self.cookies = {}
+    def __init__(self):
+        self.req = requests.session()
+        self.baseUrl = config.baseUrl
         self.headers = {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded'}
+        self.cookies = None
+        self.response = None
+        self.token = None
 
-    def post(self,url,params={}):
-        if params =={ }:
-            try:
-                request = requests.post(self.baseUrl+url,None,headers=self.headers,cookies=self.cookies)
-                return request
-            except Exception as e1:
-                print(e1.message)
+    # ****************************************************
+
+    def get_headers(self):
+        return self.headers
+
+    def del_headers(self, key):
+        self.headers.pop(key)
+
+    def set_headers(self, key, val):
+        self.headers[key] = val
+
+    # ****************************************************
+
+    def post(self, url, data=None, headers=None, cookies=None):
+        if not headers:
+            post_headers = headers
         else:
-            try:
-                request = requests.post(self.baseUrl + url, params, headers=self.headers,cookies=self.cookies)
-                return request
-            except Exception as e1:
-                print(e1)
+            post_headers = self.headers
+        self.response = self.req.post(self.baseUrl + url, data=data, headers=post_headers)
+        return self.response
 
-    def get(self,url,params={}):
-        if params =={}:
-            try:
-                request = requests.get(self.baseUrl+url)
-                return request
-            except Exception as e2:
-                print(e2.message)
+    def get(self, url, data=None, headers=None, cookies=None):
+        if not headers:
+            post_headers = headers
         else:
-            keys =params.keys()
-            paramslen = keys.__len__()
-            if paramslen !=0:
-                url = url + "?"
-            index = 1
-            for key in keys:
-                if index == paramslen:
-                    url = url + key + "=" + params[key]
-                else:
-                    url = url + key + "=" + params[key] + "&"
-                index = index + 1
-        url = url.replace(' ', '')
-        try:
-            request = requests.get(self.baseUrl+url,params)
-            return request
-        except Exception as e2:
-            print(e2)
+            post_headers = self.headers
+        self.response = self.req.get(self.baseUrl + url, data=data, headers=post_headers)
+        return self.response
 
-    def delete(self,url,params={}):
-        try:
-            request = requests.delete(self.baseUrl+url,params)
-            return request
-        except Exception as e3:
-            print(e3)
+    # ****************************************************
 
-    def put(self,url,params={}):
-        try:
-            request = requests.put(self.baseUrl + url, params)
-            return request
-        except Exception as e4:
-            print(e4)
-
-    def gettoken(self):
-        request = requests.get(self.baseUrl + '/api/token')
-        token = json.loads(request.content)["result"]["_token"]
-        self.laravel_session = request.cookies['laravel_session']
-        self.cookies = {'laravel_session': self.laravel_session}
-        return token
-
-    def login(self,username,password):
-        token = self.gettoken()
-        params = {}
-        params["user_name"] = username
-        params["_token"] = token
-        encrypted_password = hashlib.sha1((password).encode('utf_8')).hexdigest()
-        encrypted_password = hashlib.sha1((encrypted_password + token).encode('utf_8')).hexdigest()
-        params["password"] = encrypted_password
-        request=self.post("/auth/login",params)
-        print(request.content)
-
-    def logout(self):
-        self.post("/auth/logout", {})
-
+    def request_token(self):
+        self.response = self.get('/api/token')
+        self.token = json.loads(self.response.content)["result"]["_token"]
+        return self.token

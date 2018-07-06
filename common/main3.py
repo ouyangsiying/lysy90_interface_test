@@ -1,9 +1,8 @@
 import json
-
-from common.Tool import Tool
-from common.NetworkRequest import NetworkRequest
 from common.CheckResult import CheckResult
+from common.NetworkRequest import NetworkRequest
 from common.WriteReport import WriteReport
+from tool.Tool import Tool
 
 
 class Main:
