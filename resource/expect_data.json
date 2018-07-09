@@ -1,22 +1,48 @@
 {
-    "new_fa_message_except_data": {
-      "errno": 0,
-      "result": {
-        "data": [
-          {
-            "content": "崆峒区足球运动协会"
-          },
-          {
-            "content": "葫芦岛市足球协会"
-          },
-          {
-            "content": "贵溪市足球协会"
-          },
-          {
-            "content": "连山区足球协会"
-          },
-          {"content": "江苏省体育场馆协会"}
+  "password_reset_except_data": {
+    "errno": 0,
+    "result": {
+      "user_id": 1873,
+      "user_tags": [
+        "team_1732",
+        "team_130",
+        "team_132",
+        "team_131",
+        "team_112",
+        "team_1463",
+        "team_1733",
+        "team_1740",
+        "team_1741",
+        "team_129",
+        "competition_1611",
+        "competition_2210",
+        "competition_2411",
+        "competition_2468",
+        "competition_2486",
+        "competition_2485",
+        "competition_2487",
+        "competition_2496",
+        "fa_76",
+        "fa_299",
+        "notify_1_1",
+        "notify_2_1",
+        "notify_3_1",
+        "notify_4_1",
+        "notify_5_1",
+        "notify_6_1"
+      ],
+      "login_info": {
+        "image": "http:\/\/oss-test.lysy90.com\/images\/portrait\/nv_yuan.png",
+        "nickname": "\u4efb\u5b89\u5349",
+        "telephone": "133****8913",
+        "ways": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "5"
         ]
       }
     }
+  }
 }

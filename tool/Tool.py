@@ -1,4 +1,5 @@
 import json
+import config
 import xlrd
 import hashlib
 
@@ -8,7 +9,7 @@ class Tool:
     @staticmethod
     def read_json(filename):
         try:
-            with open("../resource/" + filename + ".json", 'r', encoding='utf-8') as load_file:
+            with open(config.rootPath+"resource/" + filename + ".json", 'r', encoding='utf-8') as load_file:
                 load_json_dict = json.load(load_file)
                 return load_json_dict
         except Exception as e:
@@ -19,7 +20,7 @@ class Tool:
     @staticmethod
     def read_excel(filename):
         try:
-            excel_file = xlrd.open_workbook("../test_report/" + filename + ".xls", formatting_info=True)
+            excel_file = xlrd.open_workbook(config.rootPath+"test_report/" + filename + ".xls", formatting_info=True)
             return excel_file
         except Exception as e:
             print("读文件异常", e)

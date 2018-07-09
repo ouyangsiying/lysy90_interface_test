@@ -1,21 +1,15 @@
 {
   "api_list": [
     {
-      "url": "/api/get_new_fa_message",
+      "url": "/password/reset",
       "method": "get",
-      "need_login": 0,
-      "test_data": "new_fa_message_test_data",
-      "expect_data": "new_fa_message_except_data"
-    },
-    {
-      "url": "/api/get_new_fa_message",
-      "method": "get",
-      "need_preposition": {
-        "yes":"preposition_data"
+      "login": {
+        "type":1,
+        "username":"13345678913",
+        "password":"111111"
       },
-      "test_data": "new_fa_message_test_data",
-      "expect_data": "new_fa_message_except_data"
+      "test_data": "password_reset_test_data",
+      "expect_data": "password_reset_except_data"
     }
-
   ]
 }

@@ -1,3 +1,11 @@
 {
-  "new_fa_message_test_data": {}
+  "password_reset_test_data": [
+    {
+      "_token":"xxxx",
+      "old_password":111111,
+      "new_password":111111,
+      "new_password_confirmation":111111
+    }
+
+  ]
 }
