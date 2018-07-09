@@ -5,12 +5,12 @@ from tool.Tool import Tool
 class Processing:
     def __init__(self):
         self.net = NetworkRequest()
-    def login(self,user_name,password):
+    def login(self,username,password):
         token = self.net.request_token()
         parm ={}
         hash_password = Tool.hash_password(password, token)
         print("加密密码", hash_password)
-        parm["user_name"] = user_name
+        parm["user_name"] = username
         parm["_token"] = token
         parm["password"] = hash_password
         print(parm)

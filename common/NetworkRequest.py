@@ -46,4 +46,5 @@ class NetworkRequest:
     def request_token(self):
         self.response = self.get('/api/token')
         self.token = json.loads(self.response.content)["result"]["_token"]
+        print("请求的",self.token)
         return self.token
