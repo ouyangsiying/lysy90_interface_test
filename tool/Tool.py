@@ -37,6 +37,6 @@ class Tool:
     # 加密密码
     @staticmethod
     def hash_password(password,token):
-        hash_password = hashlib.sha1((password).encode('utf_8')).hexdigest()
-        hash_password = hashlib.sha1((hash_password+token).encode('utf_8')).hexdigest()
+        hash_password1 = hashlib.sha1((password).encode('utf_8')).hexdigest()
+        hash_password = hashlib.sha1((hash_password1+token).encode('utf_8')).hexdigest()
         return hash_password
