@@ -19,5 +19,3 @@ class Processing:
 
     def logout(self):
         self.post("/auth/logout", {})
-p = Processing()
-p.login("admin001","111111")
