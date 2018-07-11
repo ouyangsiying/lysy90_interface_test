@@ -2,7 +2,7 @@
   "api_list": [
     {
       "url": "/password/reset",
-      "method": "get",
+      "method": "post",
       "login": {
         "type":1,
         "username":"13345678913",

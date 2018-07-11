@@ -10,6 +10,7 @@ class Main:
         self.net = NetworkRequest()
         self.check = CheckResult()
         self.write = WriteReport()
+        self.token = self.net.request_token()
         # self.msg = ''
         # self.code = 0
 
@@ -29,10 +30,14 @@ class Main:
             login_password = api["login"]["password"]
             test_datas = api["test_data"]
             expect_data_addr = api["expect_data"]
-            expect_data = expect_data_file[expect_data_addr]
-            print("期望结果", expect_data)
+            expect_datas = expect_data_file[expect_data_addr]
+            for expect_data in expect_datas:
+                print("期望结果", expect_data)
             params = test_data_file[test_datas]
-            print(params)
+            for param in params:
+                if '_token' in param.keys():
+                    param['_token'] = self.token
+                print("测试数据",param)
             if need_login == 0:
                 print("执行不需要登录的")
                 if method == "get":
@@ -42,19 +47,36 @@ class Main:
                     print("开始比较实际结果和期望值")
                     flag = self.check.comparison_result( expect_data, result_dict)
                     self.write.write_report(url, params, expect_data, result_dict, flag)
+                elif method =="post":
+                    result = self.net.post(url, params)
+                    result_dict = json.loads(result.content)
+                    print("实际结果", result_dict)
+                    print("开始比较实际结果和期望值")
+                    flag = self.check.comparison_result(expect_data, result_dict)
+                    self.write.write_report(url, params, expect_data, result_dict, flag)
+
             else:
                 print("执行登录")
-                token = self.net.request_token()
                 parms = {}
-                hash_password = Tool.hash_password(login_password, token)
+                hash_password = Tool.hash_password(login_password, self.token)
                 parms["user_name"] = login_username
-                parms["_token"] = token
+                parms["_token"] = self.token
                 parms["password"] = hash_password
                 r_login = self.net.post("/auth/login", parms)
                 print("登录结果:", r_login.text)
 
                 if method == "get":
                     result = self.net.get(url, params)
+                    result_dict = json.loads(result.content)
+                    print("实际结果", result_dict)
+                    print("开始比较实际结果和期望值")
+                    flag = self.check.comparison_result(expect_data, result_dict)
+                    self.write.write_report(url, params, expect_data, result_dict, flag)
+
+                elif method == "post":
+                    print("请求的url", url)
+                    print("请求的params", params)
+                    result = self.net.post(url, params)
                     result_dict = json.loads(result.content)
                     print("实际结果", result_dict)
                     print("开始比较实际结果和期望值")

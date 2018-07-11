@@ -1,8 +1,6 @@
 import json
-
 import xlwt
 from xlutils.copy import copy
-
 from tool.Tool import Tool
 
 

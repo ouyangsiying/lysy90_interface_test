@@ -5,6 +5,11 @@
       "old_password":111111,
       "new_password":111111,
       "new_password_confirmation":111111
+    },{
+      "_token":"xxxx",
+      "old_password":111111,
+      "new_password":111111,
+      "new_password_confirmation":111111
     }
 
   ]
