@@ -3,7 +3,7 @@
     {
       "url": "/password/reset",
       "method": "post",
-      "login": {
+      "need_login": {
         "type":1,
         "username":"13345678913",
         "password":"111111"
