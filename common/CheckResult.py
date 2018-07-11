@@ -62,12 +62,12 @@ class CheckResult:
     def comparison_array(self, array1, array2):
         if type(array1) != type(array2):
             status = -1
-            print("数组不相等")
+            # print("数组不相等")
             return status
         else:
             if len(array1) != len(array2):
                 status = -1
-                print("数组不相等")
+                # print("数组不相等")
                 return status
             else:
                 for i in range(len(array1)):
@@ -78,11 +78,11 @@ class CheckResult:
                     else:
                         if array1[i] != array2[i]:
                             status = -1
-                            print("数组不相等")
+                            # print("数组不相等")
                             return status
                         else:
-                            print("数组相等")
+                            # print("数组相等")
                             status = 1
-                print(status)
+                # print(status)
                 return status
 
