@@ -41,19 +41,19 @@ class Main:
             if need_login == 0:
                 print("执行不需要登录的")
                 if method == "get":
-                    result = self.net.get(url, params)
+                    result = self.net.get(url, param)
                     result_dict = json.loads(result.content)
                     print("实际结果", result_dict)
                     print("开始比较实际结果和期望值")
                     flag = self.check.comparison_result( expect_data, result_dict)
-                    self.write.write_report(url, params, expect_data, result_dict, flag)
+                    self.write.write_report(url, param, expect_data, result_dict, flag)
                 elif method =="post":
-                    result = self.net.post(url, params)
+                    result = self.net.post(url, param)
                     result_dict = json.loads(result.content)
                     print("实际结果", result_dict)
                     print("开始比较实际结果和期望值")
                     flag = self.check.comparison_result(expect_data, result_dict)
-                    self.write.write_report(url, params, expect_data, result_dict, flag)
+                    self.write.write_report(url, param, expect_data, result_dict, flag)
 
             else:
                 print("执行登录")
@@ -66,22 +66,23 @@ class Main:
                 print("登录结果:", r_login.text)
 
                 if method == "get":
-                    result = self.net.get(url, params)
+                    result = self.net.get(url, param)
                     result_dict = json.loads(result.content)
                     print("实际结果", result_dict)
                     print("开始比较实际结果和期望值")
                     flag = self.check.comparison_result(expect_data, result_dict)
-                    self.write.write_report(url, params, expect_data, result_dict, flag)
+                    self.write.write_report(url, param, expect_data, result_dict, flag)
 
                 elif method == "post":
                     print("请求的url", url)
-                    print("请求的params", params)
-                    result = self.net.post(url, params)
+                    print("请求的params", param)
+                    print("执行需要登录的post")
+                    result = self.net.post(url, param)
                     result_dict = json.loads(result.content)
                     print("实际结果", result_dict)
                     print("开始比较实际结果和期望值")
                     flag = self.check.comparison_result(expect_data, result_dict)
-                    self.write.write_report(url, params, expect_data, result_dict, flag)
+                    self.write.write_report(url, param, expect_data, result_dict, flag)
 
 
 
