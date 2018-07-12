@@ -36,8 +36,10 @@ class Main:
                 # print("测试和期望",params[index],expect_datas[index])
                 param = params[index]
                 expect_data = expect_datas[index]
+                print("期望结果",expect_data)
                 if '_token' in param.keys():
                     param["_token"] =self.token
+                    print("测试数据", param)
                 if need_login == 0:
                     print("执行不需要登录的")
                     if method == "get":
@@ -74,6 +76,16 @@ class Main:
                         self.write.write_report(url, param, expect_data, result_dict, flag)
 
                     elif method == "post":
+                        # print("请求的params", param)
+                        # print("执行需要登录的post")
+                        result = self.net.post(url, param)
+                        result_dict = json.loads(result.content)
+                        print("实际结果", result_dict)
+                        # print("开始比较实际结果和期望值")
+                        flag = self.check.comparison_result(expect_data, result_dict)
+                        self.write.write_report(url, param, expect_data, result_dict, flag)
+
+                    elif method == "delete":
                         # print("请求的params", param)
                         # print("执行需要登录的post")
                         result = self.net.post(url, param)

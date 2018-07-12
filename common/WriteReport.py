@@ -36,9 +36,9 @@ class WriteReport:
         # result_sheet.write(0, 1, txt1.decode('utf-8'))
         if flag == 1:
             write_sheet.write(n, 4, u"测试通过")
-            # print("测试通过")
+            print("测试通过")
         else:
             write_sheet.write(n, 4, u"测试失败")
-            # print("测试失败")
+            print("测试失败")
         wb.save(r"../test_report/report.xls")
         # print("报告书写完成")

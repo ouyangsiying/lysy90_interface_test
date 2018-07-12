@@ -92,5 +92,11 @@
         }
       }
     }
+  ],
+  "team_reg_fa_except_data":[
+    {
+    "errno": 0,
+    "result": {}
+}
   ]
 }

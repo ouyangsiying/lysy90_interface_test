@@ -12,5 +12,14 @@
       "new_password_confirmation":111111
     }
 
+  ],
+  "team_reg_fa_test_data":[
+    {
+      "_token":"xxxxx",
+      "age_group":0,
+      "year":2018,
+      "fa_id":118,
+      "team_id":112
+    }
   ]
 }
