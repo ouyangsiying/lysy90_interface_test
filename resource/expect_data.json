@@ -1,98 +1,41 @@
 {
   "password_reset_except_data": [
+      {
+        "errno":0,
+        "result":
+        {
+          "user_id":144330,
+          "user_tags": [
+            "notify_1_1","notify_2_1","notify_3_1","notify_4_1","notify_5_1","notify_6_1","tag_test"
+          ],
+          "login_info": {
+            "image":"http:\/\/oss-test.lysy90.com\/images\/portrait\/default_player.png","nickname":"\u8db3\u7403\u5c0f\u5c06","telephone":"****","ways":["1"]}}
+      },
     {
       "errno": 0,
       "result": {
-        "user_id": 1873,
+        "user_id": 144330,
         "user_tags": [
-          "team_1732",
-          "team_130",
-          "team_132",
-          "team_131",
-          "team_112",
-          "team_1463",
-          "team_1733",
-          "team_1740",
-          "team_1741",
-          "team_129",
-          "competition_1611",
-          "competition_2210",
-          "competition_2411",
-          "competition_2468",
-          "competition_2486",
-          "competition_2485",
-          "competition_2487",
-          "competition_2496",
-          "fa_76",
-          "fa_299",
           "notify_1_1",
           "notify_2_1",
           "notify_3_1",
           "notify_4_1",
           "notify_5_1",
-          "notify_6_1"
+          "notify_6_1",
+          "tag_test"
         ],
         "login_info": {
-          "image": "http:\/\/oss-test.lysy90.com\/images\/portrait\/nv_yuan.png",
-          "nickname": "\u4efb\u5b89\u5349",
-          "telephone": "133****8913",
+          "image": "http:\/\/oss-test.lysy90.com\/images\/portrait\/default_player.png",
+          "nickname": "\u8db3\u7403\u5c0f\u5c06",
+          "telephone": "****",
           "ways": [
-            "1",
-            "1",
-            "1",
-            "1",
-            "5"
-          ]
-        }
-      }
-    },
-    {
-      "errno": 0,
-      "result": {
-        "user_id": 1873,
-        "user_tags": [
-          "team_1732",
-          "team_130",
-          "team_132",
-          "team_131",
-          "team_112",
-          "team_1463",
-          "team_1733",
-          "team_1740",
-          "team_1741",
-          "team_129",
-          "competition_1611",
-          "competition_2210",
-          "competition_2411",
-          "competition_2468",
-          "competition_2486",
-          "competition_2485",
-          "competition_2487",
-          "competition_2496",
-          "fa_76",
-          "fa_299",
-          "notify_1_1",
-          "notify_2_1",
-          "notify_3_1",
-          "notify_4_1",
-          "notify_5_1",
-          "notify_6_1"
-        ],
-        "login_info": {
-          "image": "http:\/\/oss-test.lysy90.com\/images\/portrait\/nv_yuan.png",
-          "nickname": "\u4efb\u5b89\u5349",
-          "telephone": "133****8913",
-          "ways": [
-            "1",
-            "1",
-            "1",
-            "1",
-            "5"
+            "1"
           ]
         }
       }
     }
   ],
+
   "team_reg_fa_except_data":[
     {
     "errno": 0,

@@ -5,12 +5,13 @@
       "method": "post",
       "need_login": {
         "type":1,
-        "username":"13345678913",
+        "username":"ouyang思颖",
         "password":"111111"
       },
       "test_data": "password_reset_test_data",
       "expect_data": "password_reset_except_data"
     },
+
     {
        "url": "/team/reg_fa",
       "method": "delete",

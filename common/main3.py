@@ -56,6 +56,24 @@ class Main:
                         # print("开始比较实际结果和期望值")
                         flag = self.check.comparison_result(expect_data, result_dict)
                         self.write.write_report(url, param, expect_data, result_dict, flag)
+                    elif method == "delete":
+                        # print("请求的params", param)
+                        # print("执行需要登录的post")
+                        result = self.net.post(url, param)
+                        result_dict = json.loads(result.content)
+                        print("实际结果", result_dict)
+                        # print("开始比较实际结果和期望值")
+                        flag = self.check.comparison_result(expect_data, result_dict)
+                        self.write.write_report(url, param, expect_data, result_dict, flag)
+                    elif method == "put":
+                        # print("请求的params", param)
+                        # print("执行需要登录的post")
+                        result = self.net.post(url, param)
+                        result_dict = json.loads(result.content)
+                        print("实际结果", result_dict)
+                        # print("开始比较实际结果和期望值")
+                        flag = self.check.comparison_result(expect_data, result_dict)
+                        self.write.write_report(url, param, expect_data, result_dict, flag)
 
                 else:
                     # print("执行登录")
@@ -86,6 +104,15 @@ class Main:
                         self.write.write_report(url, param, expect_data, result_dict, flag)
 
                     elif method == "delete":
+                        # print("请求的params", param)
+                        # print("执行需要登录的post")
+                        result = self.net.post(url, param)
+                        result_dict = json.loads(result.content)
+                        print("实际结果", result_dict)
+                        # print("开始比较实际结果和期望值")
+                        flag = self.check.comparison_result(expect_data, result_dict)
+                        self.write.write_report(url, param, expect_data, result_dict, flag)
+                    elif method == "put":
                         # print("请求的params", param)
                         # print("执行需要登录的post")
                         result = self.net.post(url, param)
