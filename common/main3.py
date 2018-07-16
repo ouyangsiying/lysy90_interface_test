@@ -1,5 +1,6 @@
 import json
 from common.CheckResult import CheckResult
+from common.Check import Check
 from common.NetworkRequest import NetworkRequest
 from common.WriteReport import WriteReport
 from tool.Tool import Tool
@@ -8,7 +9,8 @@ from tool.Tool import Tool
 class Main:
     def __init__(self):
         self.net = NetworkRequest()
-        self.check = CheckResult()
+        # self.check = CheckResult()
+        self.check = Check()
         self.write = WriteReport()
         self.token = self.net.request_token()
 
