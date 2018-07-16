@@ -6,23 +6,8 @@
 class CheckResult:
     def __init__(self):
         self.Flag = ""
-        self.status = 0
+        self.status = ""
         self.report = ''
-
-    def compre_keys(self, expect_keys, actual_keys):
-        # 比较键返回-1，表示键不相同
-        # 比较键返回1，表示键相同
-        # 键不相同
-        if len(expect_keys) != len(actual_keys):
-            return -1, "键不相同" + str(len(expect_keys)) + str(len(actual_keys))
-        # 键相同
-        else:
-            for key in expect_keys:
-                if key in actual_keys:
-                    pass
-                else:
-                    return -1, "不存在的键" + key
-            return 1, "键相同"
 
     def comparison_result(self, expect, actual):
         expect_keys = list(expect.keys())
@@ -33,8 +18,9 @@ class CheckResult:
         # 返回status为1，表示期望和实际结果相同
         # 返回status为-1，表示期望和实际结果不相同
         if code == -1:
-            self.status == -1
+            self.status = -1
             # self.report['key'] = msg
+            # print("比较",self.status)
             return self.status
         else:
             for key, value in expect.items():
@@ -57,6 +43,24 @@ class CheckResult:
                         # 类型不一样
                         self.status = -1
             return self.status
+
+    def compre_keys(self, expect_keys, actual_keys):
+        # 比较键返回-1，表示键不相同
+        # 比较键返回1，表示键相同
+        # 键不相同
+        if len(expect_keys) != len(actual_keys):
+            # print("----建不同")
+            return -1, "键不相同" + str(len(expect_keys)) + str(len(actual_keys))
+            # 键相同
+        else:
+            for key in expect_keys:
+                if key in actual_keys:
+                    pass
+                else:
+                    return -1, "不存在的键" + key
+                    # print("----建不同")
+                # print("----建同")
+                return 1, "键相同"
 
     # 比较数组
     def comparison_array(self, array1, array2):

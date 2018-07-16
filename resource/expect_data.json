@@ -12,7 +12,7 @@
             "image":"http:\/\/oss-test.lysy90.com\/images\/portrait\/default_player.png","nickname":"\u8db3\u7403\u5c0f\u5c06","telephone":"****","ways":["1"]}}
       },
     {
-      "errno": 0,
+      "errno": 1,
       "result": {
         "user_id": 144330,
         "user_tags": [

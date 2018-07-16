@@ -76,7 +76,7 @@ class Main:
                         self.write.write_report(url, param, expect_data, result_dict, flag)
 
                 else:
-                    # print("执行登录")
+                    print("执行登录")
                     parms = {}
                     hash_password = Tool.hash_password(login_password, self.token)
                     parms["user_name"] = login_username
@@ -105,10 +105,10 @@ class Main:
 
                     elif method == "delete":
                         # print("请求的params", param)
-                        # print("执行需要登录的post")
+                        print("----执行需要登录的删除请求----")
                         result = self.net.post(url, param)
                         result_dict = json.loads(result.content)
-                        print("实际结果", result_dict)
+                        print("实际结果：", result_dict)
                         # print("开始比较实际结果和期望值")
                         flag = self.check.comparison_result(expect_data, result_dict)
                         self.write.write_report(url, param, expect_data, result_dict, flag)
@@ -122,7 +122,7 @@ class Main:
                         flag = self.check.comparison_result(expect_data, result_dict)
                         self.write.write_report(url, param, expect_data, result_dict, flag)
                 result = self.net.post("/auth/logout", {})
-                print('------')
+                print('---------------')
 if __name__ == "__main__":
     main = Main()
     main.run()
