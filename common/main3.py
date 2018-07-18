@@ -24,6 +24,7 @@ class Main:
         api_list = api_file["api_list"]
 
         for api in api_list:
+            print(api)
             url = api["url"]
             method = api["method"]
             need_login = api["need_login"]["type"]
